@@ -14,14 +14,14 @@ app.use(express.json());
 const authRoutes = require("./routes/authRoutes");
 app.use("/api/auth", authRoutes);
 
-// Data analysis routes
-const dataRoutes = require("./routes/dataRoutes");
-app.use("/api/data", dataRoutes);
+// Analytics routes
+const analyticsRoutes = require("./routes/analyticsRoutes");
+app.use("/api", analyticsRoutes);
 
 mongoose
-  .connect(process.env.MONGO_URI,)
+  .connect(process.env.MONGO_URI, )
   .then(() => console.log("MongoDB Connected"))
-  .catch(err => console.log(err));
+  .catch((err) => console.error(err));
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
