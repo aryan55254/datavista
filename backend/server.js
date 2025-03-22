@@ -10,15 +10,11 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// Auth routes
+// Auth routes (if you still want authentication)
 const authRoutes = require("./routes/authRoutes");
 app.use("/api/auth", authRoutes);
 
-// Analytics routes (for tracking data, etc.)
-const analyticsRoutes = require("./routes/analyticsRoutes");
-app.use("/api", analyticsRoutes);
-
-// Website analysis route
+// Website analyzer route
 const websiteRoutes = require("./routes/websiteRoutes");
 app.use("/api", websiteRoutes);
 
