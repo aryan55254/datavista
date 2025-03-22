@@ -1,5 +1,6 @@
-const csv = require("csv-parse");
+// controllers/dataController.js
 const fs = require("fs");
+const { parse } = require("csv-parse"); // <-- Correct import
 
 exports.analyzeData = (req, res) => {
   if (!req.file) {
@@ -10,19 +11,25 @@ exports.analyzeData = (req, res) => {
   const rows = [];
 
   fs.createReadStream(filePath)
-    .pipe(csv({ columns: true, trim: true }))
+    .pipe(parse({ columns: true, trim: true }))
     .on("data", (row) => {
       rows.push(row);
     })
     .on("end", () => {
-      // Example: Return the count of rows and columns
       const numRows = rows.length;
       const numColumns = numRows > 0 ? Object.keys(rows[0]).length : 0;
-      // Clean up the file after processing if needed
+
+      // Optionally delete the file if you don't need it anymore
       fs.unlinkSync(filePath);
-      res.json({ numRows, numColumns, message: "Data analyzed successfully" });
+
+      res.json({
+        numRows,
+        numColumns,
+        message: "Data analyzed successfully",
+      });
     })
     .on("error", (error) => {
+      console.error("CSV parse error:", error);
       res.status(500).json({ message: error.message });
     });
 };
