@@ -14,12 +14,16 @@ app.use(express.json());
 const authRoutes = require("./routes/authRoutes");
 app.use("/api/auth", authRoutes);
 
-// Analytics routes
+// Analytics routes (for tracking data, etc.)
 const analyticsRoutes = require("./routes/analyticsRoutes");
 app.use("/api", analyticsRoutes);
 
+// Website analysis route
+const websiteRoutes = require("./routes/websiteRoutes");
+app.use("/api", websiteRoutes);
+
 mongoose
-  .connect(process.env.MONGO_URI, )
+  .connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => console.log("MongoDB Connected"))
   .catch((err) => console.error(err));
 
