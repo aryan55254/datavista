@@ -1,28 +1,17 @@
 // src/components/Dashboard.jsx
-import React, { useContext } from 'react'
-import { AuthContext } from '../context/AuthContext'
-import WebsiteAnalyzer from './WebsiteAnalyzer'
+import React from 'react'
 import { motion } from 'framer-motion'
+import Scraper from './Scraper'
 
 const Dashboard = () => {
-  const { auth, logout } = useContext(AuthContext)
-
   return (
     <motion.div
+      className="p-6 max-w-5xl mx-auto"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      className="p-6 max-w-5xl mx-auto"
     >
-      <div className="flex justify-between items-center mb-6">
-        <h1 className="text-3xl">Welcome, {auth.user?.username}</h1>
-        <button
-          onClick={logout}
-          className="bg-red-500 text-white px-4 py-2 rounded"
-        >
-          Logout
-        </button>
-      </div>
-      <WebsiteAnalyzer />
+      <h1 className="text-3xl mb-6">Web Scraper Dashboard</h1>
+      <Scraper />
     </motion.div>
   )
 }
