@@ -12,7 +12,10 @@ app.use(cors({
   credentials: true
 }));
 app.use(express.json());
-
+//root path route 
+app.get('/' , (req,res) => {
+  res.send('BACKEND is running');
+});
 // Auth routes (if you still want authentication)
 const authRoutes = require("./routes/authRoutes");
 app.use("/api/auth", authRoutes);
