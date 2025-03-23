@@ -30,7 +30,7 @@ const Scraper = () => {
     }
     try {
       const res = await axios.post(
-        'http://localhost:5000/api/scrape',
+        'https://backend-sandy-two-21.vercel.app/api/scrape',
         { url, items: selectedItems },
         { headers: { Authorization: `Bearer ${auth.token}` } }
       );
