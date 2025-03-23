@@ -30,7 +30,7 @@ const Scraper = () => {
     }
     try {
       const res = await axios.post(
-        'https://backend-sandy-two-21.vercel.app/api/scrape',
+        'https://backend-qwh3dmwxw-aryan-s-projects-f1c1f2a0.vercel.app/api/scrape',
         { url, items: selectedItems },
         { headers: { Authorization: `Bearer ${auth.token}` } }
       );

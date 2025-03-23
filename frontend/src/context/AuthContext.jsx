@@ -13,13 +13,13 @@ export const AuthProvider = ({ children }) => {
   }, [])
 
   const login = async (email, password) => {
-    const res = await axios.post('https://backend-sandy-two-21.vercel.app/api/auth/login', { email, password })
+    const res = await axios.post('https://backend-qwh3dmwxw-aryan-s-projects-f1c1f2a0.vercel.app/auth/login', { email, password })
     setAuth({ token: res.data.token, user: res.data.user })
     localStorage.setItem('datavistaAuth', JSON.stringify({ token: res.data.token, user: res.data.user }))
   }
 
   const register = async (username, email, password) => {
-    await axios.post('https://backend-sandy-two-21.vercel.app/api/auth/register', { username, email, password })
+    await axios.post('https://backend-qwh3dmwxw-aryan-s-projects-f1c1f2a0.vercel.app/api/auth/register', { username, email, password })
   }
 
   const logout = () => {
