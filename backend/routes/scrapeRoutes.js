@@ -1,10 +1,11 @@
 // routes/scrapeRoutes.js
 const express = require("express");
 const { scrapeWebsite } = require("../controllers/scrapeController");
+const authMiddleware = require("../middleware/authMiddleware");
 
 const router = express.Router();
 
-// POST /api/scrape to scrape a website
-router.post("/scrape", scrapeWebsite);
+// Protected route: only logged-in users (with a valid token) can access this endpoint.
+router.post("/scrape", authMiddleware, scrapeWebsite);
 
 module.exports = router;

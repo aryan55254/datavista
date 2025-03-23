@@ -1,19 +1,33 @@
 // src/App.jsx
-import React from 'react'
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom'
-import Dashboard from './components/Dashboard'
+import React, { useContext } from "react";
+import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
+import LandingPage from "./components/Landing";
+import Dashboard from "./components/Dashboard";
+import AuthForm from "./components/AuthForm"; // Login/Register Page
+import { AuthContext } from "./context/AuthContext";
+
+const ProtectedRoute = ({ children }) => {
+  const { auth } = useContext(AuthContext);
+  return auth.token ? children : <Navigate to="/auth" replace />;
+};
 
 const App = () => {
   return (
     <Router>
-      <nav className="p-4 bg-white shadow flex justify-between">
-        <Link to="/" className="text-blue-500 font-bold">Web Scraper</Link>
-      </nav>
       <Routes>
-        <Route path="/" element={<Dashboard />} />
+        <Route path="/" element={<LandingPage />} />
+        <Route path="/auth" element={<AuthForm />} />
+        <Route
+          path="/dashboard"
+          element={
+            <ProtectedRoute>
+              <Dashboard />
+            </ProtectedRoute>
+          }
+        />
       </Routes>
     </Router>
-  )
-}
+  );
+};
 
-export default App
+export default App;
