@@ -7,7 +7,9 @@ const dotenv = require("dotenv");
 dotenv.config();
 const app = express();
 
-app.use(cors());
+app.use(cors({
+  origin : ['https://scrapesift.vercel.app/']
+}));
 app.use(express.json());
 
 // Auth routes (if you still want authentication)
