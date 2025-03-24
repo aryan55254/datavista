@@ -8,7 +8,7 @@ dotenv.config();
 const app = express();
 
 app.use(cors({
-  origin : [''],
+  origin : ['https://scrapesift-frontend.vercel.app/'],
   credentials: true
 }));
 app.use(express.json());
