@@ -30,7 +30,7 @@ const Scraper = () => {
     }
     try {
       const res = await axios.post(
-        'https://scrapesift-backend-ppj8bc8jl-aryan-s-projects-f1c1f2a0.vercel.app/api/scrape',
+        'https://api.scrapesift.aryanmishra.site/api/scrape',
         { url, items: selectedItems },
         { headers: { Authorization: `Bearer ${auth.token}` } }
       );

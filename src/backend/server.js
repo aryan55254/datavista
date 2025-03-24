@@ -9,12 +9,13 @@ const app = express();
 app.use(express.json());
 app.use(
   cors({
-    origin: "https://scrapesift-frontend-3xlmzhthj-aryan-s-projects-f1c1f2a0.vercel.app/", 
+    origin: "https://scrapesift.aryanmishra.site",
     methods: "GET,POST,PUT,DELETE,OPTIONS",
     allowedHeaders: "Content-Type, Authorization",
     credentials: true,
   })
 );
+
 app.options("*", cors()); // Handle preflight requests
 
 //root path route 
