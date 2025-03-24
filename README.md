@@ -8,6 +8,37 @@ An web scraper that extracts text, images, and links from public websites with e
 🔒 Secure Authentication with JWT  
 📱 User-Friendly Dashboard  
 
+## Project Structure
+```
+scrapesift/
+├── backend/
+│   ├── src/
+│   │   ├── controllers/
+│   │   ├── middleware/
+│   │   ├── models/
+│   │   ├── routes/
+│   │   ├── authRoutes.js
+│   │   └── scrapeRoutes.js
+│   ├── .env
+│   ├── server.js
+│   └── vercel.json
+├── frontend/
+│   ├── src/
+│   │   ├── components/
+│   │   │   ├── AuthForm.jsx
+│   │   │   ├── Dashboard.jsx
+│   │   │   ├── Landing.jsx
+│   │   │   └── Scraper.jsx
+│   │   ├── context/
+│   │   │   └── AuthContext.jsx
+│   │   ├── styles.css
+│   │   └── main.js
+│   ├── .env
+│   ├── index.html
+│   └── vercel.json
+└── README.md
+```
+
 ## Tech Stack
 ### Frontend:
 - React.js (with Vite for fast development)
@@ -32,14 +63,12 @@ An web scraper that extracts text, images, and links from public websites with e
 ---
 
 ## Getting Started
-
 ### Prerequisites
 - Node.js 18 or later
 - MongoDB Atlas or Local MongoDB instance
 - npm or yarn
 
 ### Local Development Setup
-
 #### Clone the repository
 ```sh
 git clone https://github.com/aryan55254/scrapesift.git
@@ -49,23 +78,23 @@ cd scrapesift
 #### Install dependencies
 ```sh
 # Frontend
-cd client
+cd frontend
 npm install
 
 # Backend
-cd ../server
+cd ../backend
 npm install
 ```
 
 #### Set up environment variables
-Create a `.env` file in the `server/` directory and fill it with:
+Create a `.env` file in the `backend/` directory and fill it with:
 ```env
 PORT=5000
 MONGO_URI=<your-mongodb-connection-string>
 JWT_SECRET=<your-secret-key>
 ```
 
-For the frontend, create a `.env` file in the `client/` directory:
+For the frontend, create a `.env` file in the `frontend/` directory:
 ```env
 VITE_API_BASE_URL=http://localhost:5000
 ```
@@ -73,13 +102,14 @@ VITE_API_BASE_URL=http://localhost:5000
 #### Start the development servers
 ```sh
 # Terminal 1: Start the backend
-cd server
+cd backend
 npm run dev
 
 # Terminal 2: Start the frontend
-cd client
+cd frontend
 npm run dev
 ```
+
 Visit `http://localhost:5173` to see your application.
 
 ---
@@ -89,7 +119,7 @@ Visit `http://localhost:5173` to see your application.
 # Backend
 npm run dev       # Start backend in development mode
 npm run build     # Build for production
-npm start        # Start backend in production
+npm start         # Start backend in production
 
 # Frontend
 npm run dev       # Start frontend development server
@@ -104,4 +134,3 @@ For support, email aryanmishra55254@gmail.com or open an issue in the repository
 
 ## License
 MIT License
-
