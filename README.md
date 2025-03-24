@@ -1,8 +1,6 @@
 # ScrapeSift
 An web scraper that extracts text, images, and links from public websites with ease.
 
-## Watch the Demo on YouTube
-
 ## Key Features
 ✅ Extracts Text, Images, and Links from Any Webpage  
 ⚡ Fast and Efficient Scraping with Puppeteer  
