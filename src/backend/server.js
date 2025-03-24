@@ -8,10 +8,11 @@ dotenv.config();
 const app = express();
 
 app.use(cors({
-  origin : ['https://scrapesift-frontend.vercel.app/'],
+  origin : ['https://scrapesift-frontend.vercel.app'],
   methods: "GET,POST,PUT,DELETE",
     credentials: true,
 }));
+app.options("*", cors()); // Allow all OPTIONS requests
 app.use(express.json());
 //root path route 
 app.get('/' , (req,res) => {
