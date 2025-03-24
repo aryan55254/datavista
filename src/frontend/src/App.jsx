@@ -1,5 +1,5 @@
 // src/App.jsx
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import LandingPage from "./components/Landing";
 import Dashboard from "./components/Dashboard";
@@ -12,6 +12,15 @@ const ProtectedRoute = ({ children }) => {
 };
 
 const App = () => {
+  const { auth } = useContext(AuthContext);
+
+  useEffect(() => {
+    // Auto-redirect to dashboard if logged in
+    if (auth.token) {
+      window.location.pathname = "/dashboard";
+    }
+  }, [auth.token]);
+
   return (
     <Router>
       <Routes>

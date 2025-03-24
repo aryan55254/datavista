@@ -1,13 +1,19 @@
 // src/components/Dashboard.jsx
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { motion } from "framer-motion";
 import Scraper from "./Scraper";
 import { AuthContext } from "../context/AuthContext";
 import { useNavigate } from "react-router-dom";
 
 const Dashboard = () => {
-  const { logout } = useContext(AuthContext);
+  const { auth, logout } = useContext(AuthContext);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    if (!auth.token) {
+      navigate("/auth"); // Redirect to login if not authenticated
+    }
+  }, [auth.token, navigate]);
 
   const handleLogout = () => {
     logout();
@@ -95,7 +101,7 @@ const Dashboard = () => {
             className="w-full max-w-4xl bg-white bg-opacity-90 backdrop-blur-sm rounded-lg shadow-lg p-8"
           >
             <h2 className="text-3xl font-bold text-center mb-6">
-              Welcome to ScrapeSift
+              Welcome to ScrapeSift, {auth.user?.username || "User"}!
             </h2>
             <Scraper />
           </motion.div>

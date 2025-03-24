@@ -6,11 +6,25 @@ export const AuthContext = createContext()
 
 export const AuthProvider = ({ children }) => {
   const [auth, setAuth] = useState({ token: null, user: null })
-
+  
   useEffect(() => {
     const storedAuth = JSON.parse(localStorage.getItem('datavistaAuth'))
-    if (storedAuth) setAuth(storedAuth)
+    if (storedAuth?.token) {
+      fetchUser(storedAuth.token)
+    }
   }, [])
+
+  const fetchUser = async (token) => {
+    try {
+      const res = await axios.get('https://api.scrapesift.aryanmishra.site/api/auth/me', {
+        headers: { Authorization: `Bearer ${token}` }
+      })
+      setAuth({ token, user: res.data.user })
+    } catch (error) {
+      console.error('Failed to fetch user', error)
+      logout()
+    }
+  }
 
   const login = async (email, password) => {
     const res = await axios.post('https://api.scrapesift.aryanmishra.site/api/auth/login', { email, password })
