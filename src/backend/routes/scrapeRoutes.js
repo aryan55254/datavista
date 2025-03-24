@@ -1,6 +1,6 @@
 // routes/scrapeRoutes.js
 const express = require("express");
-const { scrapeWebsite } = require("../controllers/scrapeController");
+const  scrapeWebsite  = require("../controllers/scrapeController");
 const authMiddleware = require("../middleware/authMiddleware");
 
 const router = express.Router();
