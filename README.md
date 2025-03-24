@@ -42,7 +42,7 @@ An web scraper that extracts text, images, and links from public websites with e
 
 #### Clone the repository
 ```sh
-git clone https://github.com/aryanmishra2005/scrapesift.git
+git clone https://github.com/aryan55254/scrapesift.git
 cd scrapesift
 ```
 
