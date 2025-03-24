@@ -6,14 +6,17 @@ const dotenv = require("dotenv");
 
 dotenv.config();
 const app = express();
-
-app.use(cors({
-  origin : ['https://scrapesift-frontend.vercel.app'],
-  methods: "GET,POST,PUT,DELETE",
-    credentials: true,
-}));
-app.options("*", cors()); // Allow all OPTIONS requests
 app.use(express.json());
+app.use(
+  cors({
+    origin: "https://scrapesift-frontend.vercel.app", // Ensure it's set
+    methods: "GET,POST,PUT,DELETE,OPTIONS",
+    allowedHeaders: "Content-Type, Authorization",
+    credentials: true,
+  })
+);
+app.options("*", cors()); // Handle preflight requests
+
 //root path route 
 app.get('/' , (req,res) => {
   res.send('BACKEND is running');
