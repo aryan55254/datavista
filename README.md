@@ -21,7 +21,6 @@ scrapesift/
 │   │   └── scrapeRoutes.js
 │   ├── .env
 │   ├── server.js
-│   └── vercel.json
 ├── frontend/
 │   ├── src/
 │   │   ├── components/
@@ -33,9 +32,7 @@ scrapesift/
 │   │   │   └── AuthContext.jsx
 │   │   ├── styles.css
 │   │   └── main.js
-│   ├── .env
 │   ├── index.html
-│   └── vercel.json
 └── README.md
 ```
 
@@ -93,17 +90,11 @@ PORT=5000
 MONGO_URI=<your-mongodb-connection-string>
 JWT_SECRET=<your-secret-key>
 ```
-
-For the frontend, create a `.env` file in the `frontend/` directory:
-```env
-VITE_API_BASE_URL=http://localhost:5000
-```
-
 #### Start the development servers
 ```sh
 # Terminal 1: Start the backend
 cd backend
-npm run dev
+node server.js
 
 # Terminal 2: Start the frontend
 cd frontend
@@ -117,7 +108,6 @@ Visit `http://localhost:5173` to see your application.
 ## Scripts
 ```sh
 # Backend
-npm run dev       # Start backend in development mode
 npm run build     # Build for production
 npm start         # Start backend in production
 
