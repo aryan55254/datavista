@@ -45,7 +45,6 @@ scrapesift/
 ### Backend:
 - Node.js
 - Express.js
-- Puppeteer (for web scraping)
 - Cheerio (for HTML parsing)
 
 ### Database & Authentication:
