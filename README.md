@@ -3,7 +3,7 @@ An web scraper that extracts text, images, and links from public websites with e
 
 ## Key Features
 ✅ Extracts Text, Images, and Links from Any Webpage  
-⚡ Fast and Efficient Scraping with Puppeteer  
+⚡ Fast and Efficient Scraping with cheerio
 🔄 Real-time Data Extraction  
 🔒 Secure Authentication with JWT  
 📱 User-Friendly Dashboard  
